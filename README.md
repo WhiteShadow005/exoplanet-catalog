@@ -25,13 +25,19 @@ Responsive UI design
 NASA Exoplanet Archive — TAP Service
 
 Base URL: https://exoplanetarchive.ipac.caltech.edu/TAP/sync
+
 Docs: https://exoplanetarchive.ipac.caltech.edu/docs/TAP/usingTAP.html
+
 Authentication: None required — completely free, no API key needed
+
 Format: JSON via ADQL query parameter
 
 Sample request:
 
-GET https://exoplanetarchive.ipac.caltech.edu/TAP/sync?query=select+pl_name,hostname,discoverymethod,disc_year,pl_rade,pl_bmasse,pl_orbper,sy_dist+from+pscomppars+where+pl_rade+is+not+null&format=json
+GET https://exoplanetarchive.ipac.caltech.edu/TAP/sync?
+
+query=select+pl_name,hostname,discoverymethod,disc_year,pl_rade,pl_bmasse,pl_orbper,sy_dist+from+pscomppars+where+pl_rade+is+not+null&format=json
+
 Key data fields returned per planet:
 FieldDescriptionpl_namePlanet namehostnameHost star namediscoverymethodHow it was found (Transit, RV, Imaging, etc.)disc_yearYear of discoverypl_radePlanet radius (Earth radii)pl_bmassePlanet mass (Earth masses)pl_orbperOrbital period (days)sy_distDistance from Earth (parsecs)
 
