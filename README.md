@@ -54,10 +54,3 @@ localStorage to save favourite planets
 
 🛠️ Technologies
 TechnologyPurposeHTML5Page structureCSS3Styling and responsive layoutJavaScript (ES6+)Logic, API calls, DOM manipulationNASA Exoplanet Archive APIPlanet data sourceVercel / NetlifyDeployment (Milestone 4)
-
-📁 Project Structure
-exoplanet-catalog/
-├── index.html        # Main HTML file
-├── style.css         # Stylesheet
-├── app.js            # Main JavaScript (API fetch, render, HOFs)
-└── README.md         # Project documentation
