@@ -1,7 +1,7 @@
 # exoplanet-catalog
 # Milestone 1: project setup and README
 
-🔭 Exoplanet Catalog
+🔭 Exoplanet Catalog\n
 A web application that lets you explore thousands of confirmed exoplanets discovered beyond our solar system, using NASA's Exoplanet Archive API. Users can search, filter, and sort planets by discovery method, size, distance, and more.
 
 🌐 Live Demo
