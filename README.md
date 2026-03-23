@@ -1,2 +1,2 @@
 # exoplanet-catalog
-#hello
+# Milestone 1: project setup and README
