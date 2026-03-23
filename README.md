@@ -36,6 +36,7 @@ Sample request:
 
 GET https://exoplanetarchive.ipac.caltech.edu/cgi-bin/nstedAPI/nph-nstedAPI?&table=exoplanets&format=ipac&where=pl_kepflag=1
 
+
 | Field Name          | Description                                   |
 | ------------------- | --------------------------------------------- |
 | **pl_name**         | Planet name                                   |
