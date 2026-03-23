@@ -34,7 +34,7 @@ Docs: https://exoplanetarchive.ipac.caltech.edu/docs/TAP/usingTAP.html
 
 Sample request:
 
-GET https://exoplanetarchive.ipac.caltech.edu/cgi-bin/nstedAPI/nph-nstedAPI?&table=exoplanets&format=ipac&where=pl_kepflag=1
+GET https://exoplanetarchive.ipac.caltech.edu/TAP/sync?query=select+*+from+ps&format=csv
 
 
 | Field Name          | Description                                   |
