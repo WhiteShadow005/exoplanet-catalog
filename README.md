@@ -28,9 +28,7 @@ Base URL: https://exoplanetarchive.ipac.caltech.edu/TAP/sync
 
 Docs: https://exoplanetarchive.ipac.caltech.edu/docs/TAP/usingTAP.html
 
-Authentication: None required — completely free, no API key needed
 
-Format: JSON via ADQL query parameter
 
 Sample request:
 
