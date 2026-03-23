@@ -52,20 +52,35 @@ GET https://exoplanetarchive.ipac.caltech.edu/TAP/sync?
 Core (Milestones 2 & 3)
 
 Fetch and display confirmed exoplanet data from NASA's archive
+
 Planet cards showing: name, host star, discovery method, year, size, distance
+
 Summary stats: total planets, discovery methods count, closest planet, largest planet
+
 Search — search planets by name or host star using Array.filter()
+
 Filter — filter by discovery method (Transit / Radial Velocity / Imaging / Microlensing / Other) using Array.filter()
+
 Sort — sort by distance, planet radius, discovery year, or name using Array.sort()
+
 Planet size classification badges (Earth-like / Super-Earth / Neptune-like / Gas Giant)
+
 Responsive design (mobile, tablet, desktop)
+
+
 
 Bonus (Milestone 4)
 
+
+
 Debouncing on the search input
+
 Pagination for large result sets (5,000+ planets)
+
 Loading indicator during API fetch
+
 Dark / Light mode toggle
+
 localStorage to save favourite planets
 
 
