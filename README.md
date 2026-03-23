@@ -24,15 +24,17 @@ Responsive UI design
 
 NASA Exoplanet Archive — TAP Service
 
-Base URL: [https://exoplanetarchive.ipac.caltech.edu/TAP/sync](https://exoplanetarchive.ipac.caltech.edu/cgi-bin/nstedAPI/nph-nstedAPI?\&table=exoplanets&format=ipac&where=pl_kepflag=1)
+Base URL: https://api.nasa.gov/
 
 Docs: https://exoplanetarchive.ipac.caltech.edu/docs/TAP/usingTAP.html
 
 
 
+
+
 Sample request:
 
-GET https://exoplanetarchive.ipac.caltech.edu/TAP/sync?
+GET https://exoplanetarchive.ipac.caltech.edu/cgi-bin/nstedAPI/nph-nstedAPI?&table=exoplanets&format=ipac&where=pl_kepflag=1
 
 | Field Name          | Description                                   |
 | ------------------- | --------------------------------------------- |
