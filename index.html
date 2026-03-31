@@ -3,9 +3,28 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>NASA Exoplanet Catalog</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    
+    <div class="app-container">
+        <header class="header">
+            <h1 class="gradient-text">Exoplanet Discovery Catalog</h1>
+            <p class="subtitle">Exploring new worlds beyond our solar system using NASA's Exoplanet Archive</p>
+        </header>
+        
+        <main class="main-content">
+            <div id="loader" class="loader-container">
+                <div class="spinner"></div>
+                <p>Establishing connection to the stars...</p>
+                <pre id="raw-data" style="text-align: left; background: #eee; padding: 15px; width: 100%; max-height: 500px; overflow-y: auto; font-family: monospace; border-radius: 5px; margin-top: 20px;"></pre>
+            </div>
+            <div id="catalog-grid" class="catalog-grid hidden">
+            </div>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
 </body>
 </html>
