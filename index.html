@@ -9,43 +9,44 @@
 </head>
 <body>
 
-  <div class="stars" id="stars"></div>
-
-  <div class="app-container">
-
-    <header class="header">
-      <div class="header-badge">NASA Exoplanet Archive</div>
-      <h1>Exoplanet<br/><span class="accent">Discovery</span><br/>Catalog</h1>
-      <p class="subtitle">Exploring worlds beyond our solar system — 100 confirmed exoplanets from NASA's archive.</p>
-    </header>
-
-    <div class="controls" id="controls">
-      <input
-        type="text"
-        id="search-input"
-        class="search-input"
-        placeholder="Search by planet or host star name..."
-        aria-label="Search planets"
-      />
-      <div class="filter-sort-row">
-        <select id="method-filter" class="select-control" aria-label="Filter by discovery method">
-          <option value="">All Methods</option>
-        </select>
-        <select id="year-filter" class="select-control" aria-label="Filter by discovery year">
-          <option value="">All Years</option>
-        </select>
-        <select id="sort-select" class="select-control" aria-label="Sort planets">
-          <option value="">Sort By</option>
-          <option value="name-asc">Name (A–Z)</option>
-          <option value="name-desc">Name (Z–A)</option>
-          <option value="year-asc">Year (Oldest)</option>
-          <option value="year-desc">Year (Newest)</option>
-          <option value="mass-asc">Mass (Lowest)</option>
-          <option value="mass-desc">Mass (Highest)</option>
-          <option value="radius-asc">Radius (Smallest)</option>
-          <option value="radius-desc">Radius (Largest)</option>
-        </select>
-        <button class="reset-btn" id="reset-btn" aria-label="Reset filters">Reset</button>
+    
+    <div class="stars" id="stars"></div>
+    
+    <div class="app-container">
+        
+        <header class="header">
+            <div class="header-badge">NASA Exoplanet Archive</div>
+            <h1>Exoplanet<br/><span class="accent">Discovery</span><br/>Catalog</h1>
+            <p class="subtitle">Exploring worlds beyond our solar system — 100 confirmed exoplanets from NASA's archive.</p>
+        </header>
+        
+        <div class="controls" id="controls">
+            <input
+            type="text"
+            id="search-input"
+            class="search-input"
+            placeholder="Search by planet or host star name..."
+            aria-label="Search planets"
+            />
+            <div class="filter-sort-row">
+                <select id="method-filter" class="select-control" aria-label="Filter by discovery method">
+                    <option value="">All Methods</option>
+                </select>
+                <select id="year-filter" class="select-control" aria-label="Filter by discovery year">
+                    <option value="">All Years</option>
+                </select>
+                <select id="sort-select" class="select-control" aria-label="Sort planets">
+                    <option value="">Sort By</option>
+                    <option value="name-asc">Name (A–Z)</option>
+                    <option value="name-desc">Name (Z–A)</option>
+                    <option value="year-asc">Year (Oldest)</option>
+                    <option value="year-desc">Year (Newest)</option>
+                    <option value="mass-asc">Mass (Lowest)</option>
+                    <option value="mass-desc">Mass (Highest)</option>
+                    <option value="radius-asc">Radius (Smallest)</option>
+                    <option value="radius-desc">Radius (Largest)</option>
+                </select>
+                <button class="reset-btn" id="reset-btn" aria-label="Reset filters">Reset</button>
       </div>
       <div class="results-count" id="results-count"></div>
     </div>
@@ -57,17 +58,11 @@
         <p class="loader-text" id="loader-text">Establishing connection to the stars…</p>
       </div>
 
-      <div id="error-state" class="error-state hidden">
-        <span class="error-icon">⚠</span>
-        <p id="error-msg">Failed to load data. Please check your network or API parameters.</p>
-      </div>
+
 
       <div id="catalog-grid" class="catalog-grid hidden"></div>
 
-      <div id="empty-state" class="empty-state hidden">
-        <span class="empty-icon">🔭</span>
-        <p>No planets match your search. Try adjusting your filters.</p>
-      </div>
+
 
     </main>
 
