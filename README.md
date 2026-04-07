@@ -1,67 +1,97 @@
-# 🔭 Exoplanet Catalog
+# 🌌 Exoplanet & NASA APOD Explorer
 
-A web application that lets you explore thousands of confirmed exoplanets discovered beyond our solar system, using NASA's Exoplanet Archive API. Users can search, filter, and sort planets by discovery method, size, distance, and more.
+## 📖 Project Overview
 
-## 🌐 Live Demo
+This project is a web application that displays space-related data using a public API. It fetches real-time data from NASA’s APOD (Astronomy Picture of the Day) API and presents it in a visually appealing card-based layout.
 
-Will be added after deployment (Milestone 4)
+The application allows users to explore space images, search for specific entries, filter them by year, and sort them based on date.
 
-## 🚀 Purpose
+---
 
-This project was built as part of a JavaScript web development assignment. The goal is to demonstrate:
+## 🚀 Features
 
-* Integration of a public REST API using `fetch`
-* Dynamic rendering of data on a webpage
-* Interactive features (search, filter, sort) using Array Higher-Order Functions
-* Responsive UI design
+* Fetch data using **NASA APOD API**
+* Display 50 space images dynamically
+* Search functionality (exact match using title)
+* Filter images by **year range**
+* Sort images by:
 
-## 🛸 API Used
+  * Oldest
+  * Newest
+* Reset button to restore default view
+* Like button ❤️ on each card
+* Dark / Light mode toggle 🌙☀️
+* Responsive grid layout
 
-NASA Exoplanet Archive — TAP Service
+---
 
-* **Base URL:** `https://api.nasa.gov/`
-* **Docs:** https://exoplanetarchive.ipac.caltech.edu/docs/TAP/usingTAP.html
-* **Sample request:** `GET https://exoplanetarchive.ipac.caltech.edu/TAP/sync?query=select+*+from+ps&format=csv`
+## 🛠️ Technologies Used
 
-| Field Name | Description |
-| :--- | :--- |
-| `pl_name` | Planet name |
-| `hostname` | Host star name |
-| `discoverymethod` | How it was found (Transit, RV, Imaging, etc.) |
-| `disc_year` | Year of discovery |
-| `pl_rade` | Planet radius (in Earth radii) |
-| `pl_bmasse` | Planet mass (in Earth masses) |
-| `pl_orbper` | Orbital period (in days) |
-| `sy_dist` | Distance from Earth (in parsecs) |
+* HTML5
+* CSS3
+* JavaScript (ES6)
+* Fetch API
 
-## ✨ Features (Milestone 2 Completed)
+---
 
-* [x] Fetch data from NASA's archive securely using API keys.
-* [x] Display raw returned JSON payload cleanly on the page for debugging and study. 
+## 🔗 API Used
 
-## 🛠️ Planned Features (Milestone 3)
-* Planet cards showing: name, host star, discovery method, year, size, distance
-* Summary stats: total planets, discovery methods count, closest planet, largest planet
-* Search — search planets by name or host star using `Array.filter()`
-* Filter — filter by discovery method (Transit / Radial Velocity / Imaging / Microlensing / Other) using `Array.filter()`
-* Sort — sort by distance, planet radius, discovery year, or name using `Array.sort()`
-* Planet size classification badges (Earth-like / Super-Earth / Neptune-like / Gas Giant)
-* Responsive design (mobile, tablet, desktop)
+NASA Astronomy Picture of the Day (APOD) API
+https://api.nasa.gov/planetary/apod
 
-## 🌟 Bonus (Milestone 4)
+---
 
-* Debouncing on the search input
-* Pagination for large result sets (5,000+ planets)
-* Loading indicator during API fetch *(Completed in M2)*
-* Dark / Light mode toggle
-* `localStorage` to save favourite planets
+## ⚙️ How It Works
 
-## 👨‍💻 Technologies
+1. The app fetches 50 random APOD entries using the API.
+2. Only image-type entries are displayed.
+3. Data is rendered dynamically using JavaScript `map()` method.
+4. Users can:
 
-| Technology | Purpose |
-| :--- | :--- |
-| **HTML5** | Page structure |
-| **CSS3** | Styling and responsive layout |
-| **JavaScript (ES6+)** | Logic, API calls, DOM manipulation |
-| **NASA API** | Planet & Image data source |
-| **Vercel / Netlify** | Deployment (Milestone 4) |
+   * Search by title
+   * Filter by year ranges
+   * Sort by date
+5. UI updates instantly based on user interaction.
+
+---
+
+## 📂 Project Structure
+
+* index.html → Main structure
+* style.css → Styling and themes
+* script.js → Logic and API integration
+
+---
+
+## ▶️ How to Run
+
+1. Download or clone the repository
+2. Open the project folder
+3. Run `index.html` in a browser
+   (or use Live Server in VS Code)
+
+---
+
+## 🎯 Learning Outcomes
+
+* Understanding of API integration using `fetch()`
+* Use of array methods:
+
+  * `map()`
+  * `filter()`
+  * `sort()`
+* DOM manipulation using JavaScript
+* Building responsive UI using CSS
+* Implementing interactive features
+
+---
+
+## 📅 Submission
+
+This project was developed as part of a milestone-based assignment focusing on JavaScript, API integration, and UI development.
+
+---
+
+## ✨ Author
+
+Arnav Gupta

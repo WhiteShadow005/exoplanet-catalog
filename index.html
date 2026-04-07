@@ -1,77 +1,92 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>NASA Exoplanet Catalog</title>
-  <link href="https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400&family=Syne:wght@400;600;800&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="style.css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Exoplanet Catalog</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Space+Mono&family=Syne&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
-    
-    <div class="stars" id="stars"></div>
-    
-    <div class="app-container">
-        
-        <header class="header">
-            <div class="header-badge">NASA Exoplanet Archive</div>
-            <h1>Exoplanet<br/><span class="accent">Discovery</span><br/>Catalog</h1>
-            <p class="subtitle">Exploring worlds beyond our solar system — 100 confirmed exoplanets from NASA's archive.</p>
-        </header>
-        
-        <div class="controls" id="controls">
-            <input
-            type="text"
-            id="search-input"
-            class="search-input"
-            placeholder="Search by planet or host star name..."
-            aria-label="Search planets"
-            />
-            <div class="filter-sort-row">
-                <select id="method-filter" class="select-control" aria-label="Filter by discovery method">
-                    <option value="">All Methods</option>
-                </select>
-                <select id="year-filter" class="select-control" aria-label="Filter by discovery year">
-                    <option value="">All Years</option>
-                </select>
-                <select id="sort-select" class="select-control" aria-label="Sort planets">
-                    <option value="">Sort By</option>
-                    <option value="name-asc">Name (A–Z)</option>
-                    <option value="name-desc">Name (Z–A)</option>
-                    <option value="year-asc">Year (Oldest)</option>
-                    <option value="year-desc">Year (Newest)</option>
-                    <option value="mass-asc">Mass (Lowest)</option>
-                    <option value="mass-desc">Mass (Highest)</option>
-                    <option value="radius-asc">Radius (Smallest)</option>
-                    <option value="radius-desc">Radius (Largest)</option>
-                </select>
-                <button class="reset-btn" id="reset-btn" aria-label="Reset filters">Reset</button>
+  <div id="stars"></div>
+
+  <div class="container">
+
+    <header class="top">
+      <p class="tag">NASA Exoplanet Archive</p>
+
+      <h1>
+        Exoplanet <span>Catalog</span>
+      </h1>
+
+      <p class="desc">
+        Exploring planets beyond our solar system.
+      </p>
+
+      <button id="theme-toggle">🌙</button>
+    </header>
+
+    <div class="controls">
+
+      <div class="search-box">
+        <input
+          type="text"
+          id="search"
+          placeholder="Search planet..."
+        >
+        <button id="search-btn">Search</button>
       </div>
-      <div class="results-count" id="results-count"></div>
+
+      <div class="filters">
+
+        <select id="year">
+          <option value="">All Years</option>
+          <option value="0-1995">0 - 1995</option>
+          <option value="1995-2000">1995 - 2000</option>
+          <option value="2000-2005">2000 - 2005</option>
+          <option value="2005-2010">2005 - 2010</option>
+          <option value="2010-2015">2010 - 2015</option>
+          <option value="2015-2020">2015 - 2020</option>
+          <option value="2020-2025">2020 - 2025</option>
+          <option value="2025-2026">2025 - 2026</option>
+        </select>
+
+        <select id="sort">
+          <option value="">Sort</option>
+          <option value="year-asc">Oldest</option>
+          <option value="year-desc">Newest</option>
+        </select>
+
+        <button id="reset">Reset</button>
+
+      </div>
+
+      <p id="count"></p>
+
     </div>
 
-    <main class="main-content">
+    <main>
 
-      <div id="loader" class="loader-container">
-        <div class="spinner"></div>
-        <p class="loader-text" id="loader-text">Establishing connection to the stars…</p>
+      <div id="loader">
+        <p>Loading planets...</p>
       </div>
 
-
-
-      <div id="catalog-grid" class="catalog-grid hidden"></div>
-
-
+      <div id="grid" class="hidden"></div>
 
     </main>
 
-    <footer class="footer">
-      <p>Data sourced from <a href="https://exoplanetarchive.ipac.caltech.edu" target="_blank" rel="noopener">NASA Exoplanet Archive</a> via TAP API.</p>
+    <footer>
+      <p>Data from NASA Exoplanet Archive</p>
     </footer>
 
   </div>
 
   <script src="script.js"></script>
+
 </body>
+
 </html>

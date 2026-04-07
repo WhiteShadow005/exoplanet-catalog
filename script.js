@@ -1,92 +1,124 @@
-let QUERY = "select top 50 pl_name,hostname,disc_year from ps where default_flag=1";
+let api = "svVD505ciuwi0o4IBBhrV6nJ8onbB8hq2XpjbT75";
 
-let BASE_URL =
-  "https://exoplanetarchive.ipac.caltech.edu/TAP/sync?query="
-  + encodeURIComponent(QUERY)
-  + "&format=json";
+let grid = document.getElementById("grid");
+let loader = document.getElementById("loader");
 
-let PROXIES = [
-  "https://corsproxy.io/?" + encodeURIComponent(BASE_URL),
-  "https://api.allorigins.win/raw?url=" + encodeURIComponent(BASE_URL),
-  "https://thingproxy.freeboard.io/fetch/" + BASE_URL
-];
+let searchInput = document.getElementById("search");
+let searchBtn = document.getElementById("search-btn");
+let resetBtn = document.getElementById("reset");
+let sortSelect = document.getElementById("sort");
+let yearSelect = document.getElementById("year");
 
-let container = document.getElementById("catalog-grid");
-let searchInput = document.getElementById("search-input");
-let resetBtn = document.getElementById("reset-btn");
-let loaderEl = document.getElementById("loader");
+let themeBtn = document.getElementById("theme-toggle");
 
 let allData = [];
 
+function display() {
+  fetch(`https://api.nasa.gov/planetary/apod?api_key=${api}&count=50`)
+    .then(res => res.json())
+    .then(function (data) {
+      allData = data.filter(item => item.media_type === "image");
 
-async function fetchData() {
-  for (let i = 0; i < PROXIES.length; i++) {
-    try {
-      let res = await fetch(PROXIES[i]);
-      if (!res.ok) {
-        throw new Error("HTTP " + res.status);
-      }
-      let data = await res.json();
-      if (!Array.isArray(data) || data.length === 0) {
-        throw new Error("Invalid API Data Format");
-      }
-      if (loaderEl) loaderEl.style.display = "none";
-      allData = data;
-      displayData(data);
-      return;
-    } catch (err) {
-      console.log("Proxy " + (i + 1) + " failed:", err);
-    }
-  }
-  
-  if (loaderEl) loaderEl.style.display = "none";
-  container.innerHTML = "<p>Failed to load data. Please check your network or API parameters.</p>";
+      loader.style.display = "none";
+      grid.classList.remove("hidden");
+
+      applyFilters();
+    })
+    .catch(function () {
+      loader.innerText = "Failed to load data";
+    });
 }
 
+function applyFilters() {
+  let data = [...allData];
+
+  let searchValue = searchInput.value.trim().toLowerCase();
+
+  if (searchValue !== "") {
+    data = data.filter(item =>
+      (item.title || "").toLowerCase() === searchValue
+    );
+  }
+
+  let yearValue = yearSelect.value;
+
+  if (yearValue !== "") {
+    let parts = yearValue.split("-");
+    let start = Number(parts[0]);
+    let end = Number(parts[1]);
+
+    data = data.filter(item => {
+      if (!item.date) return false;
+      let year = Number(item.date.split("-")[0]);
+      return year >= start && year <= end;
+    });
+  }
+
+  let sortValue = sortSelect.value;
+
+  if (sortValue === "year-asc") {
+    data.sort((a, b) => new Date(a.date) - new Date(b.date));
+  }
+
+  if (sortValue === "year-desc") {
+    data.sort((a, b) => new Date(b.date) - new Date(a.date));
+  }
+
+  displayData(data);
+}
 
 function displayData(data) {
-  container.innerHTML = "";
+  let cards = data.map(function (item) {
+    let year = item.date ? item.date.split("-")[0] : "N/A";
 
-  if (data.length === 0) {
-    container.innerHTML = "<p>No data found</p>";
-    return;
-  }
-  
-  for (let i = 0; i < data.length; i++) {
-    let p = data[i];
+    let shortText = item.explanation
+      ? item.explanation.substring(0, 120) + "..."
+      : "No description";
 
-    let card = document.createElement("div");
-    card.className = "card";
-
-    let name = p.pl_name || "Unknown";
-    let host = p.hostname || "Unknown";
-    let year = p.disc_year || "-";
-
-    card.innerHTML =
-      "<h3>" + name + "</h3>" +
-      "<p>Host: " + host + "</p>" +
-      "<p>Year: " + year + "</p>";
-
-    container.appendChild(card);
-  }
-}
-
-
-searchInput.addEventListener("input", function() {
-  let value = searchInput.value.toLowerCase();
-
-  let filtered = allData.filter(function(p) {
-    return (p.pl_name || "").toLowerCase().includes(value);
+    return `
+      <div class="card">
+        <img src="${item.url}" alt="image">
+        <h3>${item.title}</h3>
+        <p>Date: ${item.date} (${year})</p>
+        <p>${shortText}</p>
+        <span class="like">♡</span>
+      </div>
+    `;
   });
 
-  displayData(filtered);
-});
+  grid.innerHTML = cards.join("");
 
+  let likes = document.querySelectorAll(".like");
 
-resetBtn.addEventListener("click", function() {
+  likes.forEach(function (like) {
+    like.addEventListener("click", function () {
+      like.classList.toggle("active");
+      like.innerText = like.classList.contains("active") ? "♥" : "♡";
+    });
+  });
+}
+
+searchBtn.addEventListener("click", applyFilters);
+
+sortSelect.addEventListener("change", applyFilters);
+
+yearSelect.addEventListener("change", applyFilters);
+
+resetBtn.addEventListener("click", function () {
   searchInput.value = "";
-  displayData(allData);
+  sortSelect.value = "";
+  yearSelect.value = "";
+  applyFilters();
 });
 
+themeBtn.addEventListener("click", function () {
+  document.body.classList.toggle("light");
 
-fetchData();
+  if (document.body.classList.contains("light")) {
+    themeBtn.innerText = "☀️";
+  } else {
+    themeBtn.innerText = "🌙";
+  }
+});
+
+display();

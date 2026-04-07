@@ -5,29 +5,43 @@
 }
 
 body {
-  background: #05060f;
-  color: #d4daf0;
+  margin: 0;
   font-family: 'Space Mono', monospace;
+  color: #d4daf0;
+  background: url("background.png") no-repeat center center fixed;
+  background-size: cover;
 }
 
-.app-container {
+body::before {
+  content: "";
+  position: fixed;
+  backdrop-filter: blur(2px);
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(5, 6, 15, 0.6);
+  z-index: -1;
+}
+
+.container {
   max-width: 1000px;
   margin: auto;
   padding: 20px;
 }
 
-.header {
+.top {
   margin-bottom: 30px;
   border-bottom: 1px solid #1e2340;
   padding-bottom: 20px;
 }
 
-.header-badge {
+.tag {
   color: #7ef0d4;
   margin-bottom: 10px;
 }
 
-.header h1 {
+.top h1 {
   font-family: 'Syne', sans-serif;
   font-size: 42px;
   font-weight: 800;
@@ -39,28 +53,65 @@ body {
   padding-left: 10px;
 }
 
-.accent {
+.top h1 span {
   color: #7ef0d4;
   letter-spacing: 3px;
 }
 
-.subtitle {
+.desc {
   color: #6b7299;
   margin-top: 10px;
 }
 
-.search-input {
+.search-box {
+  position: relative;
+  margin-top: 15px;
+}
+
+#search {
   width: 100%;
   padding: 10px;
-  margin-top: 15px;
+  padding-right: 40px;
   background: #0d1021;
   border: 1px solid #1e2340;
   border-radius: 6px;
   color: white;
 }
 
-.reset-btn {
+#search-btn {
+  position: absolute;
+  right: 5px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: #1e2340;
+  border: none;
+  color: white;
+  padding: 6px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+#search-btn:hover {
+  background: #7ef0d4;
+  color: black;
+}
+
+.filters {
   margin-top: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+select {
+  padding: 8px;
+  background: #0d1021;
+  border: 1px solid #1e2340;
+  color: white;
+  border-radius: 6px;
+}
+
+#reset {
   padding: 8px 12px;
   border: 1px solid #1e2340;
   background: transparent;
@@ -69,7 +120,13 @@ body {
   cursor: pointer;
 }
 
-.catalog-grid {
+#count {
+  margin-top: 10px;
+  font-size: 14px;
+  color: #6b7299;
+}
+
+#grid {
   margin-top: 20px;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -77,10 +134,24 @@ body {
 }
 
 .card {
+  position: relative;
   background: #0d1021;
   border: 1px solid #1e2340;
   border-radius: 10px;
   padding: 12px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 15px rgba(126, 240, 212, 0.3);
+}
+
+.card img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 8px;
 }
 
 .card h3 {
@@ -93,3 +164,91 @@ body {
   color: #6b7299;
 }
 
+.like {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  font-size: 18px;
+  cursor: pointer;
+  color: #6b7299;
+}
+
+.like.active {
+  color: #ff4d6d;
+}
+
+#loader {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.hidden {
+  display: none;
+}
+
+#theme-toggle {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: #1e2340;
+  border: none;
+  color: white;
+  padding: 6px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+body.light {
+  background: url("light-space.jpg") no-repeat center center fixed;
+  background-size: cover;
+  color: #2b2b2b;
+}
+
+body.light::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 245, 230, 0.2);
+  z-index: -1;
+}
+
+body.light .card {
+  background: #fff3e6;
+  border: 1px solid #ffcc99;
+}
+
+body.light .top h1 {
+  color: #cc6600;
+}
+
+body.light #search,
+body.light select {
+  background: #fff8f0;
+  color: #333;
+  border: 1px solid #ffcc99;
+}
+
+body.light #reset {
+  color: #cc6600;
+  border: 1px solid #ffcc99;
+}
+
+body.light .card p {
+  color: #5c3d2e;
+}
+
+body.light #theme-toggle {
+  background: #ffcc99;
+  color: black;
+}
+
+body.light .desc {
+  color: #1a1a1a;
+}
+
+body.light .card h3 {
+  color: #333;
+}
