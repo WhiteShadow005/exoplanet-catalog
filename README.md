@@ -104,5 +104,3 @@ The objective of this project was to:
 - Clean Code Practices
 
 ---
-
-## 📂 Project Structure
