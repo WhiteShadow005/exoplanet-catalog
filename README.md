@@ -1,97 +1,108 @@
-# 🌌 Exoplanet & NASA APOD Explorer
+# 🚀 Web Application Project (Final Submission)
 
-## 📖 Project Overview
-
-This project is a web application that displays space-related data using a public API. It fetches real-time data from NASA’s APOD (Astronomy Picture of the Day) API and presents it in a visually appealing card-based layout.
-
-The application allows users to explore space images, search for specific entries, filter them by year, and sort them based on date.
+📅 **Final Submission Date:** 10th April  
 
 ---
 
-## 🚀 Features
+## 📌 Project Overview
 
-* Fetch data using **NASA APOD API**
-* Display 50 space images dynamically
-* Search functionality (exact match using title)
-* Filter images by **year range**
-* Sort images by:
+This project is a fully functional web application built using **JavaScript**, **API integration**, and modern **UI development practices**. It demonstrates the use of real-time data fetching, dynamic rendering, and interactive features such as search, filtering, and sorting.
 
-  * Oldest
-  * Newest
-* Reset button to restore default view
-* Like button ❤️ on each card
-* Dark / Light mode toggle 🌙☀️
-* Responsive grid layout
+The project was developed in multiple milestones, gradually enhancing functionality, performance, and user experience.
+
+---
+
+## 🔰 Introduction
+
+The objective of this project was to:
+
+- Build a responsive web application
+- Integrate a public API using `fetch`
+- Implement dynamic UI updates
+- Use Array Higher-Order Functions (HOFs)
+- Apply clean coding and modular structure
+
+---
+
+## 🌐 Features Implemented
+
+### ✅ Core Features
+
+- 🔍 **Search Functionality**
+  - Users can search data using keywords
+  - Implemented using Array HOFs (`filter`, `find`)
+
+- 🎯 **Filtering**
+  - Filter results based on specific conditions
+
+- 📊 **Sorting**
+  - Sort data (ascending / descending / alphabetical)
+
+- 🎛️ **Interactive UI**
+  - Buttons for user interactions (like, view, etc.)
+
+- 🌗 **Dark Mode / Light Mode**
+  - Toggle between themes for better UX
+
+---
+
+### ⚡ API Integration
+
+- Real-time data fetched using `fetch`
+- Dynamic rendering of API data on the UI
+- Proper handling of:
+  - Loading states
+  - Errors (network / empty data)
+
+---
+
+### 📱 Responsive Design
+
+- Fully responsive across:
+  - Mobile 📱
+  - Tablet 💻
+  - Desktop 🖥️
+
+- Built using modern CSS (and optionally Tailwind/Bootstrap)
+
+---
+
+## ⭐ Bonus Features Implemented
+
+- ⏳ **Debouncing**
+  - Optimized search input performance
+
+- 📦 **Pagination / Infinite Scroll**
+  - Efficient handling of large datasets
+
+- 💾 **Local Storage**
+  - Stores user preferences (e.g., theme, favorites)
+
+- 🔄 **Loading Indicators**
+  - Visual feedback during API calls
 
 ---
 
 ## 🛠️ Technologies Used
 
-* HTML5
-* CSS3
-* JavaScript (ES6)
-* Fetch API
+- **HTML5**
+- **CSS3**
+- **JavaScript (ES6+)**
+- **Fetch API**
+- *(Optional)* Tailwind CSS / Bootstrap
 
 ---
 
-## 🔗 API Used
+## 🧠 Concepts Applied
 
-NASA Astronomy Picture of the Day (APOD) API
-https://api.nasa.gov/planetary/apod
+- Array Higher-Order Functions:
+  - `map`, `filter`, `reduce`, `sort`, `find`
 
----
-
-## ⚙️ How It Works
-
-1. The app fetches 50 random APOD entries using the API.
-2. Only image-type entries are displayed.
-3. Data is rendered dynamically using JavaScript `map()` method.
-4. Users can:
-
-   * Search by title
-   * Filter by year ranges
-   * Sort by date
-5. UI updates instantly based on user interaction.
+- DOM Manipulation
+- Event Handling
+- Asynchronous JavaScript (`async/await`)
+- Clean Code Practices
 
 ---
 
 ## 📂 Project Structure
-
-* index.html → Main structure
-* style.css → Styling and themes
-* script.js → Logic and API integration
-
----
-
-## ▶️ How to Run
-
-1. Download or clone the repository
-2. Open the project folder
-3. Run `index.html` in a browser
-   (or use Live Server in VS Code)
-
----
-
-## 🎯 Learning Outcomes
-
-* Understanding of API integration using `fetch()`
-* Use of array methods:
-
-  * `map()`
-  * `filter()`
-  * `sort()`
-* DOM manipulation using JavaScript
-* Building responsive UI using CSS
-* Implementing interactive features
-
----
-
-## 📅 Submission
-
-This project was developed as part of a milestone-based assignment focusing on JavaScript, API integration, and UI development.
-
----
-
-## ✨ Author
-
-Arnav Gupta
